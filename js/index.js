@@ -1,17 +1,17 @@
 const loadData = (search) => {
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+  fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
     .then(res => res.json())
     .then(data => displayMeals(data.meals))
 }
 
 const displayMeals = (data) => {
-    console.log(data);
-    const getDiv = document.getElementById('meal-container');
-    getDiv.innerHTML = '';
-    data.forEach(data => {
-        const create = document.createElement('div');
-        create.classList.add('col');
-        create.innerHTML = `
+  console.log(data);
+  const getDiv = document.getElementById('meal-container');
+  getDiv.innerHTML = '';
+  data.forEach(data => {
+    const create = document.createElement('div');
+    create.classList.add('col');
+    create.innerHTML = `
         <div class="card">
         <img src="${data.strMealThumb}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -23,13 +23,13 @@ const displayMeals = (data) => {
         </div>
       </div>
         `;
-        getDiv.appendChild(create)
-    })
+    getDiv.appendChild(create)
+  })
 }
 
 const searchFood = () => {
-    const getValueFromFiled = document.getElementById('searchField');
-    const getValue = getValueFromFiled.value;
-    loadData(getValue);
-    getValueFromFiled.value = '';
+  const getValueFromFiled = document.getElementById('searchField');
+  const getValue = getValueFromFiled.value;
+  loadData(getValue);
+  getValueFromFiled.value = '';
 };
