@@ -32,4 +32,4 @@ const searchFood = () => {
     const getValue = getValueFromFiled.value;
     loadData(getValue);
     getValueFromFiled.value = '';
-}
+};
